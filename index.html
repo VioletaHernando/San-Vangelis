@@ -58,10 +58,24 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    /* Animación rebote al pulsar */
     .btn:active {
       transform: scale(0.95);
     }
+
+    /* Imagen 6ta en index */
+    .imagen-index {
+      margin-top: 20px;
+      width: 250px;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .imagen-index:hover {
+      transform: scale(1.05);
+    }
+
   </style>
 </head>
 <body>
@@ -76,13 +90,15 @@
     <button class="btn" id="trampa">Otra mujer</button>
   </div>
 
+  <!-- 6ª imagen -->
+  <img src="amor6.jpeg" alt="Imagen sorpresa" class="imagen-index">
+
   <canvas id="confetti" style="position:fixed;pointer-events:none;top:0;left:0;width:100%;height:100%;"></canvas>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     const trampa = document.getElementById("trampa");
 
-    // Botón que se escapa suavemente
     trampa.addEventListener("mouseover", () => {
       trampa.style.position = "absolute";
       trampa.style.transition = "all 0.3s ease";
@@ -90,7 +106,6 @@
       trampa.style.left = Math.random() * (window.innerWidth - 120) + "px";
     });
 
-    // Función al acertar
     function celebrar() {
       confetti({
         particleCount: 200,
@@ -99,7 +114,6 @@
         shapes: ['circle', 'heart'],
         colors: ['#d6336c', '#ff4081', '#ff6f91', '#ff1c68']
       });
-      // Redirige a la página de amor después de 1 segundo
       setTimeout(() => {
         window.location.href = "amor.html";
       }, 1000);
