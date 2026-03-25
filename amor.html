@@ -16,7 +16,8 @@
       font-family: 'Patrick Hand', cursive;
       text-align: center;
       margin: 0;
-      overflow: hidden;
+      overflow: auto;
+      padding: 20px;
     }
 
     h1 {
@@ -25,17 +26,36 @@
       text-shadow: 2px 2px #fff;
     }
 
-    img {
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
       margin-top: 20px;
-      width: 300px;
-      max-width: 80%;
+    }
+
+    .galeria img {
+      width: 180px;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <h1>Te quiero ❤️ Αγαπώ σε (Agápi mou)</h1>
-  <img src="amor.png" alt="Te quiero">
+
+  <div class="galeria">
+    <img src="amor1.jpeg" alt="Amor 1">
+    <img src="amor2.JPG" alt="Amor 2">
+    <img src="amor3.jpeg" alt="Amor 3">
+    <img src="amor4.jpeg" alt="Amor 4">
+    <img src="amor5.jpeg" alt="Amor 5">
+  </div>
 </body>
 </html>
