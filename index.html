@@ -6,6 +6,7 @@
   <style>
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -18,9 +19,54 @@
       font-size: 3em;
       color: #d6336c;
     }
+    p {
+      font-size: 1.5em;
+      margin: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+    }
   </style>
 </head>
 <body>
-  <h1>Feliz Santo Vangelis 💖</h1>
+  <h1>Feliz San Vangelis 💖</h1>
+  <p>Χρόνια πολλά Βαγγέλη ❤️</p>
+  <p>¿Quién es la mejor novia del mundo?</p>
+
+  <div>
+    <button class="btn" onclick="celebrar()">Violeta</button>
+    <button class="btn" onclick="celebrar()">Tú</button>
+    <button class="btn" onclick="celebrar()">Mi novia</button>
+    <button class="btn" id="trampa">Otra mujer</button>
+  </div>
+
+  <!-- Confeti -->
+  <canvas id="confetti" style="position:fixed;pointer-events:none;top:0;left:0;width:100%;height:100%;"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const trampa = document.getElementById("trampa");
+
+    // Botón que se escapa
+    trampa.addEventListener("mouseover", () => {
+      trampa.style.position = "absolute";
+      trampa.style.top = Math.random() * (window.innerHeight - 50) + "px";
+      trampa.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    });
+
+    // Función para confeti
+    function celebrar() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      alert("¡Sabía que dirías la respuesta correcta 😘!");
+    }
+  </script>
 </body>
 </html>
