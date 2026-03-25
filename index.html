@@ -58,11 +58,10 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    /* Animación rebote */
+    /* Animación rebote al pulsar */
     .btn:active {
       transform: scale(0.95);
     }
-
   </style>
 </head>
 <body>
@@ -79,13 +78,9 @@
 
   <canvas id="confetti" style="position:fixed;pointer-events:none;top:0;left:0;width:100%;height:100%;"></canvas>
 
-  <!-- Sonido -->
-  <audio id="applause" src="https://www.soundjay.com/human/applause-8.mp3"></audio>
-
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     const trampa = document.getElementById("trampa");
-    const audio = document.getElementById("applause");
 
     // Botón que se escapa suavemente
     trampa.addEventListener("mouseover", () => {
@@ -95,8 +90,8 @@
       trampa.style.left = Math.random() * (window.innerWidth - 120) + "px";
     });
 
+    // Función al acertar
     function celebrar() {
-      // Confeti y corazones
       confetti({
         particleCount: 200,
         spread: 100,
@@ -104,10 +99,10 @@
         shapes: ['circle', 'heart'],
         colors: ['#d6336c', '#ff4081', '#ff6f91', '#ff1c68']
       });
-      // Sonido
-      audio.currentTime = 0;
-      audio.play();
-      alert("¡Sabía que dirías la respuesta correcta 😘!");
+      // Redirige a la página de amor después de 1 segundo
+      setTimeout(() => {
+        window.location.href = "amor.html";
+      }, 1000);
     }
   </script>
 </body>
